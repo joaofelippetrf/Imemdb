@@ -4,8 +4,15 @@ import com.projeto.proje.entidades.Movie;
 import com.projeto.proje.entidades.repositorios.MovieRepository;
 import com.projeto.proje.service.MovieService;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 @RestController
 @RequestMapping(path="/Movies")
@@ -17,11 +24,25 @@ public class MovieController {
     @Autowired
     private MovieService movieService;
 
-    @GetMapping(path="/create")
-    public Movie createMovie(@RequestBody Movie movie) {
-        return movieService.createMovie(movie);
+    @PostMapping(path="/create")
+    public ResponseEntity<?> createMovie(@RequestBody Movie movie) {
+        try {
+            Movie savedMovie = movieService.createMovie(movie);
+            return new ResponseEntity<>(savedMovie, HttpStatus.CREATED);
+        } catch (Exception e) {
+            // Log the exception for debugging
+            e.printStackTrace();
+            return new ResponseEntity<>("Error creating movie: " + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
-
+    @GetMapping(path="/{Id}")
+        public Optional<Movie> searchMovieById(@PathVariable("Id") Integer Id) {
+            return movieService.findById(Id);
+    }
+    public String getMethodName(@RequestParam String param) {
+        return new String();
+    }
+    
     @GetMapping(path="/all")
     public Iterable<Movie> getAllMovies(){
         return movieRepository.findAll();
@@ -32,4 +53,3 @@ public class MovieController {
         return movieRepository.findByOriginalTitle(originalTitle);
     }
 }
-
