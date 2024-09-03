@@ -15,8 +15,8 @@ public class MovieService {
     }
 
     public Movie createMovie(Movie movie) {
-        // Salva o filme no banco de dados e retorna o objeto salvo
         return movieRepository.save(movie);
+        
     }
-    
+
 }
