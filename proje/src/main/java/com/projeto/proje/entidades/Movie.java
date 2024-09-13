@@ -23,6 +23,17 @@
         @Column(length = 65535) // Ajuste conforme necessário
         private String overview;
 
+        private String posterpath;
+
+        public String getPosterpath() {
+            return posterpath;
+        }
+
+        public void setPosterpath(String posterpath) {
+            this.posterpath = posterpath;
+        }
+
+
         private String homepage;
 
         private int budget;

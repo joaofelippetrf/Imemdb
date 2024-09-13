@@ -24,3 +24,4 @@ public class MovieService {
         return movieRepository.findById(id);
     }
 }
+    

@@ -25,7 +25,9 @@ def get_movie_data(movie_id):
             "voteCount": data.get("vote_count"),
             "adult": data.get("adult"),
             "popularity": data.get("popularity"),
-            "genre": data["genres"][0]["name"] if data.get("genres") else None
+            "genre": data["genres"][0]["name"] if data.get("genres") else None,
+            "posterpath": data.get("poster_path"),
+            
         }
         return movie_data
     else:
@@ -46,7 +48,7 @@ def fetch_and_post_movies(start_id, end_id):
         movie_data = get_movie_data(movie_id)
         if movie_data:
             post_movie_data(movie_data)
-        time.sleep(0.3)  # Adicionar um pequeno atraso para evitar limite de taxa da API
+        time.sleep(0.05)  # Adicionar um pequeno atraso para evitar limite de taxa da API
 
 # Coletar e enviar dados dos filmes do ID 1 até 550
-fetch_and_post_movies(1, 550)
+fetch_and_post_movies(1, 2000)

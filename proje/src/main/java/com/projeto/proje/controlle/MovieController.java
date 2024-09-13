@@ -30,7 +30,7 @@ public class MovieController {
             Movie savedMovie = movieService.createMovie(movie);
             return new ResponseEntity<>(savedMovie, HttpStatus.CREATED);
         } catch (Exception e) {
-            // Log the exception for debugging
+            
             e.printStackTrace();
             return new ResponseEntity<>("Error creating movie: " + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
@@ -48,8 +48,14 @@ public class MovieController {
         return movieRepository.findAll();
     }
     
-    @GetMapping(path="/search/{originalTitle}")
+    @GetMapping(path="/search/title/{originalTitle}")
     public Iterable<Movie> searchMovieByOriginalTitle(@PathVariable("originalTitle") String originalTitle) {
         return movieRepository.findByOriginalTitle(originalTitle);
     }
+
+    @GetMapping(path="/search/genre/{genre}")
+    public Iterable<Movie> searchByGener(@PathVariable("genre") String genre){
+        return movieRepository.findByGenre(genre);
+    }
 }
+
