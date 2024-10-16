@@ -10,9 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.List;
 
 @RestController
 @RequestMapping(path="/Movies")
@@ -35,10 +34,13 @@ public class MovieController {
             return new ResponseEntity<>("Error creating movie: " + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-    @GetMapping(path="/{Id}")
-        public Optional<Movie> searchMovieById(@PathVariable("Id") Integer Id) {
-            return movieService.findById(Id);
+    @GetMapping(path = "/{id}")
+    public ResponseEntity<Movie> searchMovieById(@PathVariable("id") Integer id) {
+        Optional<Movie> movie = movieService.findById(id);
+        return movie.map(ResponseEntity::ok)
+                    .orElseGet(() -> ResponseEntity.status(HttpStatus.NOT_FOUND).build());
     }
+    
     public String getMethodName(@RequestParam String param) {
         return new String();
     }
@@ -56,6 +58,20 @@ public class MovieController {
     @GetMapping(path="/search/genre/{genre}")
     public Iterable<Movie> searchByGener(@PathVariable("genre") String genre){
         return movieRepository.findByGenre(genre);
+    }
+
+    @GetMapping("/top100")
+    public ResponseEntity<List<Movie>> getTop100Movies() {
+        List<Movie> movies = movieService.getTop100Movies();
+        return ResponseEntity.ok(movies);
+    }
+    @GetMapping("/busca")
+    public ResponseEntity<List<Movie>> searchMovies(@RequestParam("query") String query) {
+        if (query == null || query.trim().isEmpty()) {
+            return ResponseEntity.badRequest().body(null);
+        }
+        List<Movie> movies = movieService.searchMovies(query);
+        return ResponseEntity.ok(movies);
     }
 }
 
