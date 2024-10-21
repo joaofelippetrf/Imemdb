@@ -1,6 +1,6 @@
 import './App.css'
-import '../paginas/movies'
-import MoviesList from '../paginas/movies'
+import './paginas/movies'
+import MoviesList from './paginas/movies'
 function App() {
  
 

@@ -1,0 +1,179 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+@font-face {
+    font-family: 'android';
+    src: url('/fontes/idroid.otf') format('opentype'); /* Verifique se o caminho está correto */
+    font-weight: normal;
+}
+
+html, body, #root {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.main {
+    width: 100vw;
+    height: 100vh; /* Ocupará 100% da altura da tela */
+    margin: 0;
+    padding: 0;
+  
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(to bottom,#024b86, #001338);
+    height: 15%;
+    margin-bottom: 10px;
+}
+
+.logoime {
+    height: 100px;
+}
+
+header h1 {
+    font-family: 'android', cursive; /* Aplique a fonte aqui */
+    margin: 0;
+    text-align: center;
+    flex-grow: 1;
+    color: white; /* Adiciona cor branca ao texto */
+    padding: 0;
+    max-width: 20%;
+    font-weight: bold;
+}
+
+input {
+    width: 40%;
+    color: black;
+    border-radius: 150px;
+    height: 50px;
+    border: 1px solid #fd6739;
+    font-size: 20px;
+}
+
+button {
+    background-color: black;
+    color: white;
+    width: 180px;
+    height: 80px;
+    border-radius: 300px;
+    border: 1px solid rgba(0, 0, 0, 0.562);
+    font-size: 22px;
+    font-family: var(--fonte2);
+}
+
+header a {
+    text-decoration: none; /* Remove o sublinhado padrão dos links */
+    color: white; /* Cor branca para os links */
+    margin: 0 10px; /* Espaçamento entre os links */
+    font-size: 22px; /* Tamanho da fonte */
+    font-family: 'android', cursive; /* Fonte personalizada */
+    transition: color 0.3s ease; /* Transição suave ao passar o mouse */
+    text-align: center;
+}
+
+a:hover {
+    color: #003DB8; /* Cor de destaque ao passar o mouse */
+    background-color: white;
+    border-radius: 5px;
+}
+
+a:active {
+    color: #ff4500; /* Cor quando o link é clicado */
+}
+
+.movies-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  margin: 20px 0;
+}
+
+.movies-carousel {
+  display: flex;
+  overflow-x: scroll;
+  scroll-behavior: smooth;
+}
+
+.movie-card {
+  min-width: 200px;
+  margin-right: 15px;
+  text-align: center;
+}
+
+.movie-card {
+  min-width: 200px;
+  margin-right: 15px;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+  border-radius: 10px;
+  overflow: hidden; /* Garante que o conteúdo não saia do card */
+  height: 200px;
+}
+.movie-card:hover {
+  transform: translateY(-5px); /* Leve elevação ao passar o mouse */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Sombra ao passar o mouse */
+}
+.movie-poster {
+  width: 100%;
+  border-radius: 10px;
+  transition: transform 0.3s ease; /* Transição suave ao passar o mouse */
+  height: 80%;
+}
+
+.scroll-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  border: none;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.scroll-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0.8); /* Fundo branco semi-transparente */
+  border: none;
+  color: #024b86; /* Cor do texto */
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 50%; /* Forma circular */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Sombra para dar destaque */
+  transition: background-color 0.3s, transform 0.3s; /* Transições suaves */
+}
+
+.scroll-btn.left {
+  left: 10px; /* Distância da borda esquerda */
+}
+
+.scroll-btn.right {
+  right: 10px; /* Distância da borda direita */
+}
+
+.scroll-btn:hover {
+  background-color: rgba(255, 255, 255, 1); /* Fundo branco ao passar o mouse */
+  transform: scale(1.1); /* Aumentar ligeiramente o botão ao passar o mouse */
+}
+
+.movies-carousel {
+  display: flex;
+  overflow-x: hidden; /* Oculta a barra de rolagem */
+  transition: transform 0.3s; /* Adiciona uma transição suave ao mover */
+}
+
+.movies-container{
+  margin-top: -1px;
+  
+}
+
+h2{
+  margin-left: 10px;
+}
