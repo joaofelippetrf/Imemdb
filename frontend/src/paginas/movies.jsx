@@ -45,6 +45,7 @@ const MoviesList = () => {
         <a href="">Genero</a>
         <a href="">Top 100 Filmes</a>
       </header>
+      
       {error ? <p>{error}</p> : null}
       
       <div className="movies-container">
@@ -63,13 +64,16 @@ const MoviesList = () => {
                   alt={movie.originalTitle}
                   className="movie-poster"
                 />
-                <h5>{movie.originalTitle}</h5>
+                
               </div>
             );
           })}
+          
         </div>
         <button className="scroll-btn right" onClick={scrollRight}>&gt;</button> {/* Botão para rolar à direita */}
+
       </div>
+      <h2>Lancamentos Recentes</h2>
     </div>
   );
 };
