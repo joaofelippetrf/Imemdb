@@ -1,0 +1,33 @@
+.titulo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #222;
+    color: white;
+  }
+  
+  .logo h2 {
+    margin: 0;
+  }
+  .nav{
+    padding: 10px;
+  }
+  .navbar {
+    padding: 3px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #222;
+    color: white;
+  }
+
+  .search input {
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #333;
+    background-color: #555;
+    color: white;
+  }
+  
