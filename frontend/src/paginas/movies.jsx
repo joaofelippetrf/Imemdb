@@ -1,13 +1,14 @@
-import { useState, useEffect, useRef } from 'react';
+// src/MoviesList.js
+import { useEffect, useState, useRef } from 'react';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '/src/App.css';
-import logo from '/src/assets/logo.png';
+import '../App.css';
+import Header from './header.jsx'; // Importar o componente de cabeçalho
 
 const MoviesList = () => {
   const [movies, setMovies] = useState([]);
   const [error, setError] = useState(null);
-  const carouselRef = useRef(null); // Referência para o carrossel
+  const carouselRef = useRef(null);
 
   useEffect(() => {
     const fetchMovies = async () => {
@@ -22,35 +23,26 @@ const MoviesList = () => {
     fetchMovies();
   }, []);
 
-  // Função para rolar o carrossel
   const scrollLeft = () => {
     if (carouselRef.current) {
-      carouselRef.current.scrollLeft -= 165; // Ajuste a quantidade de rolagem
+      carouselRef.current.scrollLeft -= 165;
     }
   };
 
   const scrollRight = () => {
     if (carouselRef.current) {
-      carouselRef.current.scrollLeft += 165; // Ajuste a quantidade de rolagem
+      carouselRef.current.scrollLeft += 165;
     }
   };
 
   return (
     <div className="container-fullscreen">
-      <header>
-        <img className="logoime" src={logo} alt="Logo IMEdb" />
-        <input type="text" placeholder="Pesquisar..." />
-        <h1>IMEdb</h1>
-        <a href="" className='info'>Inicio</a>
-        <a href="" className='info'>Genero</a>
-        <a href="" className='info'>Top 100 Filmes</a>
-      </header>
-      
+      <Header /> {/* Usar o cabeçalho aqui */}
       {error ? <p>{error}</p> : null}
-      
+
       <div className="movies-container">
         <h2 className='subtitulo'>Filmes Populares</h2>
-        <button className="scroll-btn left" onClick={scrollLeft}>&lt;</button> {/* Botão para rolar à esquerda */}
+        <button className="scroll-btn left" onClick={scrollLeft}>&lt;</button>
         <div className="movies-carousel" ref={carouselRef}>
           {movies.map((movie) => {
             const posterUrl = movie.posterpath
@@ -64,19 +56,16 @@ const MoviesList = () => {
                   alt={movie.originalTitle}
                   className="movie-poster"
                 />
-                
               </div>
             );
           })}
-          
         </div>
-        <button className="scroll-btn right" onClick={scrollRight}>&gt;</button> {/* Botão para rolar à direita */}
-
+        <button className="scroll-btn right" onClick={scrollRight}>&gt;</button>
       </div>
-      <h2 className='subtitulo'>Lancamentos Recentes</h2>
+
+      <h2 className='subtitulo'>Lançamentos Recentes</h2>
       <footer className='fimdapag'>
         <a className='info' href="https://github.com/joaofelippetrf/Imemdb">Github do Projeto</a>
-        
       </footer>
     </div>
   );
