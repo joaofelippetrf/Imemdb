@@ -41,15 +41,15 @@ const MoviesList = () => {
         <img className="logoime" src={logo} alt="Logo IMEdb" />
         <input type="text" placeholder="Pesquisar..." />
         <h1>IMEdb</h1>
-        <a href="">Inicio</a>
-        <a href="">Genero</a>
-        <a href="">Top 100 Filmes</a>
+        <a href="" className='info'>Inicio</a>
+        <a href="" className='info'>Genero</a>
+        <a href="" className='info'>Top 100 Filmes</a>
       </header>
       
       {error ? <p>{error}</p> : null}
       
       <div className="movies-container">
-        <h2>Filmes Populares</h2>
+        <h2 className='subtitulo'>Filmes Populares</h2>
         <button className="scroll-btn left" onClick={scrollLeft}>&lt;</button> {/* Botão para rolar à esquerda */}
         <div className="movies-carousel" ref={carouselRef}>
           {movies.map((movie) => {
@@ -73,7 +73,11 @@ const MoviesList = () => {
         <button className="scroll-btn right" onClick={scrollRight}>&gt;</button> {/* Botão para rolar à direita */}
 
       </div>
-      <h2>Lancamentos Recentes</h2>
+      <h2 className='subtitulo'>Lancamentos Recentes</h2>
+      <footer className='fimdapag'>
+        <a className='info' href="">Github do Projeto</a>
+        
+      </footer>
     </div>
   );
 };

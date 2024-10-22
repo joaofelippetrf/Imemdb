@@ -13,13 +13,7 @@ html, body, #root {
     background-color: #1A1C29;
 }
 
-.main {
-    width: 100vw;
-    height: 100vh; /* Ocupará 100% da altura da tela */
-    margin: 0;
-    padding: 0;
-  
-}
+
 
 header {
     display: flex;
@@ -67,7 +61,7 @@ button {
     font-family: var(--fonte2);
 }
 
-header a {
+.info{
     text-decoration: none; /* Remove o sublinhado padrão dos links */
     color: white; /* Cor branca para os links */
     margin: 0 10px; /* Espaçamento entre os links */
@@ -88,13 +82,13 @@ a:active {
 }
 
 .movies-container {
-  position: relative;
+  position: relative; /* Para posicionar os botões dentro deste contêiner */
   width: 100%;
-  overflow: hidden;
   margin: 0;
+  margin-top: 2px;
   background-color: #1A1C29;
-  height: 100%;
   color: white;
+  height: auto; /* A altura agora será ajustada com base no conteúdo */
 }
 
 .movies-carousel {
@@ -124,32 +118,43 @@ a:active {
   height: 100%;
 }
 
+
+
+/* Inicialmente deixa os botões invisíveis */
 .scroll-btn {
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(128, 128, 128, 0.8);
   border: none;
   color: white;
-  font-size: 2rem;
+  font-size: 40px; /* Aumenta o tamanho da seta */
   cursor: pointer;
-  padding: 10px;
+  padding: 0;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, opacity 0.3s ease; /* Transição suave */
+  width: 60px;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+
+  bottom: 0;
+  margin: auto;
+  opacity: 0; /* Invisível por padrão */
+  pointer-events: none; /* Evita que o botão capture eventos de clique quando invisível */
+}
+.movies-container:hover .scroll-btn {
+  opacity: 1; /* Torna os botões visíveis */
+  pointer-events: all; /* Habilita os eventos de clique quando visíveis */
 }
 
-.scroll-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: rgba(128, 128, 128, 0.8); /* Cor de fundo cinza com um pouco de transparência */
-  border: none;
-  color: white;
-  font-size: 2rem; /* Tamanho da seta */
-  cursor: pointer;
-  padding: 15px 20px; /* Ajuste o preenchimento para criar um botão retangular */
-  border-radius: 5px; /* Bordas levemente arredondadas */
-  transition: background-color 0.3s ease; /* Transição suave para o hover */
-  width: 60px; /* Largura fixa do botão */
-}
+
+
+.scroll-btn.left {
+  left: 0; /* Botão esquerdo
+
+
+
 
 .scroll-btn.left {
   left: 0px; /* Distância da borda esquerda */
@@ -169,15 +174,24 @@ a:active {
   transition: transform 0.2s; /* Adiciona uma transição suave ao mover */
 }
 
-.movies-container{
-  margin-top:2px;
-  
-}
 
-.movies-container h2{
-  color: white;
+
+.subtitulo{
+  color: white; 
   margin-left: 10px;
-  font-size: 20px;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  margin-top: 30px;
+  font-size: 24px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
+.fimdapag {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-image: linear-gradient(to bottom,#024b86, #001338);
+  color: white;
+  text-align: center;
+  padding: 10px;
+  border-top: 1px solid white;
+  height: 7%;
+}
