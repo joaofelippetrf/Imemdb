@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom'; // Para capturar o id da URL
 import axios from 'axios';
-
+import Header from './header';
+import Footer from './footer';
 const MovieDetails = () => {
   const { id } = useParams(); // Pega o id do filme a partir da URL
   const [movie, setMovie] = useState(null);
@@ -31,6 +32,7 @@ const MovieDetails = () => {
 
   return (
     <div className="movie-details">
+      <Header/>
       <h1 className='subtitulo'>{movie.originalTitle}</h1>
       <img
         src={movie.posterpath ? `https://image.tmdb.org/t/p/w500${movie.posterpath}` : 'https://via.placeholder.com/500x750?text=Imagem+não+disponível'}
@@ -40,6 +42,7 @@ const MovieDetails = () => {
       <p className='subtitulo'><strong>Data de lançamento:</strong> {movie.releaseDate}</p>
       <p><strong className='subtitulo'>Sinopse:</strong> {movie.synopsis}</p>
       {/* Outros detalhes do filme */}
+      <Footer/>
     </div>
   );
 };

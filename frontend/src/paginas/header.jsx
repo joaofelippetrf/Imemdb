@@ -1,7 +1,6 @@
-// src/components/Header.js
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import logo from '/src/assets/logo.png'; // Certifique-se de que o caminho está correto
+import logo from '/src/assets/logo.png'; // Ensure the path is correct
 
 const Header = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -23,9 +22,11 @@ const Header = () => {
       />
       <button onClick={handleSearch}>Pesquisar</button>
       <h1>IMEdb</h1>
-      <a href="/" className='info'>Inicio</a>
-      <a href="/genero" className='info'>Genero</a>
-      <a href="/top-100" className='info'>Top 100 Filmes</a>
+      <nav>
+        <a href="/" className='info'>Início</a>
+        <a href="/genero" className='info'>Gênero</a>
+        <a href="/top-movies" className='info'>Top 100 Filmes</a>
+      </nav>
     </header>
   );
 };

@@ -8,6 +8,7 @@ import Footer from './footer.jsx';
 
 const MoviesList = () => {
   const [movies, setMovies] = useState([]);
+  const [recentReleases, setRecentReleases] = useState([]); // Estado para lançamentos recentes
   const [error, setError] = useState(null);
   const carouselRef = useRef(null);
 
@@ -21,7 +22,19 @@ const MoviesList = () => {
         setError('Erro ao carregar filmes.');
       }
     };
+
+    const fetchRecentReleases = async () => {
+      try {
+        const response = await axios.get('http://localhost:8081/Movies/recent'); // Endpoint para lançamentos recentes
+        setRecentReleases(response.data);
+      } catch (error) {
+        console.error('Erro ao buscar lançamentos recentes:', error);
+        setError('Erro ao carregar lançamentos recentes.');
+      }
+    };
+
     fetchMovies();
+    fetchRecentReleases();
   }, []);
 
   const scrollLeft = () => {
@@ -68,7 +81,31 @@ const MoviesList = () => {
       </div>
 
       <h2 className='subtitulo'>Lançamentos Recentes</h2>
-      <Footer/>
+      <div className="movies-carousel">
+        {recentReleases.length > 0 ? (
+          recentReleases.map((movie) => {
+            const posterUrl = movie.posterpath
+              ? `https://image.tmdb.org/t/p/w500${movie.posterpath}`
+              : 'https://via.placeholder.com/500x750?text=Imagem+não+disponível';
+
+            return (
+              <div className="movie-card" key={movie.id}>
+                <Link to={`/movies/${movie.id}`}>
+                  <img
+                    src={posterUrl}
+                    alt={movie.originalTitle}
+                    className="movie-poster"
+                  />
+                </Link>
+              </div>
+            );
+          })
+        ) : (
+          <p>Nenhum lançamento recente encontrado.</p>
+        )}
+      </div>
+      
+      <Footer />
     </div>
   );
 };

@@ -92,8 +92,7 @@ a:active {
   background-color: #1A1C29;
   color: white;
   height: auto; /* A altura agora será ajustada com base no conteúdo */
-  display: flex;
-  justify-content: left;
+
 }
 
 .movies-carousel {
@@ -203,4 +202,17 @@ a:active {
   padding: 10px;
   border-top: 1px solid white;
   height: 7%;
+}
+
+.movie-search {
+  position: relative; /* Para posicionar os botões dentro deste contêiner */
+  width: 100%;
+  margin: 0;
+  margin-top: 2px;
+  background-color: #1A1C29;
+  color: white;
+  height: auto; /* A altura agora será ajustada com base no conteúdo */
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap; /* Adicione esta linha para permitir que os itens "desçam" */
 }

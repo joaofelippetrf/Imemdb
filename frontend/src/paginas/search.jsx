@@ -33,9 +33,9 @@ const SearchResults = () => {
   return (
     <div className="container-fullscreen">
       <Header /> {/* Usar o cabeçalho aqui */}
-      <h1>Resultados da Busca</h1>
+      <h2 className='subtitulo'>Resultados da Busca</h2>
       {error && <p>{error}</p>}
-      <div className="movies-container">
+      <div className="movie-search">
         {movies.length > 0 ? (
           movies.map(movie => (
             <div className="movie-card" key={movie.id}>
