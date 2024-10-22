@@ -1,9 +1,9 @@
-// src/MoviesList.js
 import { useEffect, useState, useRef } from 'react';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../App.css';
-import Header from './header.jsx'; // Importar o componente de cabeçalho
+import Header from './header.jsx'; 
+import Footer from './footer.jsx';
 
 const MoviesList = () => {
   const [movies, setMovies] = useState([]);
@@ -37,8 +37,8 @@ const MoviesList = () => {
 
   return (
     <div className="container-fullscreen">
-      <Header /> {/* Usar o cabeçalho aqui */}
-      {error ? <p>{error}</p> : null}
+      <Header /> 
+      {error ? <p className="error-message">{error}</p> : null}
 
       <div className="movies-container">
         <h2 className='subtitulo'>Filmes Populares</h2>
@@ -64,9 +64,7 @@ const MoviesList = () => {
       </div>
 
       <h2 className='subtitulo'>Lançamentos Recentes</h2>
-      <footer className='fimdapag'>
-        <a className='info' href="https://github.com/joaofelippetrf/Imemdb">Github do Projeto</a>
-      </footer>
+      <Footer/>
     </div>
   );
 };

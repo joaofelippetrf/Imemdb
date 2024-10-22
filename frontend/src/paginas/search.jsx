@@ -4,6 +4,7 @@ import axios from 'axios';
 import { useLocation } from 'react-router-dom';
 import Header from './header.jsx'; // Importar o componente de cabeçalho
 import '../App.css';
+import Footer from './footer.jsx';
 
 const SearchResults = () => {
   const [movies, setMovies] = useState([]);
@@ -50,6 +51,7 @@ const SearchResults = () => {
           <p>Nenhum resultado encontrado.</p>
         )}
       </div>
+      <Footer />
     </div>
   );
 };
