@@ -42,9 +42,9 @@ const MovieDetails = () => {
                 />
             <div className="movie-info">
                 <h1 className='titulo'>{movie.originalTitle}</h1>
-                <p><strong className='subtitulo'>Diretor:</strong> {movie.director}</p>
+                <p strong className='subtitulo'><strong className='subtitulo'>Budget:</strong> {movie.budget}$</p>
                 <p className='subtitulo'><strong>Data de lançamento:</strong> {movie.releaseDate}</p>
-                <p><strong className='subtitulo'>Sinopse:</strong> {movie.synopsis}</p>
+                <p className='subtitulo'><strong className='subtitulo'>Sinopse:</strong> {movie.overview}</p>
                 {/* Outros detalhes do filme */}
             </div>
         </div>
