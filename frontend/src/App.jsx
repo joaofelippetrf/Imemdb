@@ -4,6 +4,7 @@ import MoviesList from './paginas/movies'; // Ensure this path is correct
 import MovieDetails from './paginas/filmeID'; // Import MovieDetails component
 import SearchResults from './paginas/search.jsx'; // Import SearchResults component
 
+
 function App() {
   return (
     <Router>

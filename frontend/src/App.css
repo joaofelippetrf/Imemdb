@@ -43,7 +43,24 @@ header h1 {
     max-width: 20%;
     font-weight: bold;
 }
+  .movie-details {
+    display: flex; /* Define um layout flexbox */
+    flex-direction: row; /* Organiza os itens em uma linha */
+    align-items: flex-start; /* Alinha os itens ao topo */
+    gap: 20px; /* Espaço entre a imagem e as informações */
+    padding: 20px;
+  }
 
+  .movie-details img {
+    max-width: 300px; /* Define uma largura máxima para a imagem */
+    height: auto; /* Mantém a proporção da imagem */
+  }
+
+  .movie-info {
+    display: flex;
+    flex-direction: column; /* Mantém o texto empilhado verticalmente */
+    justify-content: flex-start;
+  }
 input {
     width: 40%;
     color: black;
@@ -183,7 +200,13 @@ a:active {
   
 }
 
-
+.titulo{
+  color: white; 
+  margin-left: 10px;
+  margin-top: 30px;
+  font-size: 60px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
 
 .subtitulo{
   color: white; 
