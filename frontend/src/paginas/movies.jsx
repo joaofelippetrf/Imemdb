@@ -25,13 +25,13 @@ const MoviesList = () => {
   // Função para rolar o carrossel
   const scrollLeft = () => {
     if (carouselRef.current) {
-      carouselRef.current.scrollLeft -= 300; // Ajuste a quantidade de rolagem
+      carouselRef.current.scrollLeft -= 165; // Ajuste a quantidade de rolagem
     }
   };
 
   const scrollRight = () => {
     if (carouselRef.current) {
-      carouselRef.current.scrollLeft += 300; // Ajuste a quantidade de rolagem
+      carouselRef.current.scrollLeft += 165; // Ajuste a quantidade de rolagem
     }
   };
 
@@ -75,7 +75,7 @@ const MoviesList = () => {
       </div>
       <h2 className='subtitulo'>Lancamentos Recentes</h2>
       <footer className='fimdapag'>
-        <a className='info' href="">Github do Projeto</a>
+        <a className='info' href="https://github.com/joaofelippetrf/Imemdb">Github do Projeto</a>
         
       </footer>
     </div>
