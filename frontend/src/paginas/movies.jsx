@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '/src/App.css';
@@ -25,13 +26,13 @@ const MoviesList = () => {
   // Função para rolar o carrossel
   const scrollLeft = () => {
     if (carouselRef.current) {
-      carouselRef.current.scrollLeft -= 300; // Ajuste a quantidade de rolagem
+      carouselRef.current.scrollLeft -= 165; // Ajuste a quantidade de rolagem
     }
   };
 
   const scrollRight = () => {
     if (carouselRef.current) {
-      carouselRef.current.scrollLeft += 300; // Ajuste a quantidade de rolagem
+      carouselRef.current.scrollLeft += 165; // Ajuste a quantidade de rolagem
     }
   };
 
@@ -50,7 +51,7 @@ const MoviesList = () => {
       
       <div className="movies-container">
         <h2 className='subtitulo'>Filmes Populares</h2>
-        <button className="scroll-btn left" onClick={scrollLeft}>&lt;</button> {/* Botão para rolar à esquerda */}
+        <button className="scroll-btn left" onClick={scrollLeft}>&lt;</button>
         <div className="movies-carousel" ref={carouselRef}>
           {movies.map((movie) => {
             const posterUrl = movie.posterpath
@@ -59,24 +60,25 @@ const MoviesList = () => {
 
             return (
               <div className="movie-card" key={movie.id}>
-                <img
-                  src={posterUrl}
-                  alt={movie.originalTitle}
-                  className="movie-poster"
-                />
-                
+                {/* Link para a página de detalhes do filme */}
+                <Link to={`/movies/${movie.id}`}>
+                  <img
+                    src={posterUrl}
+                    alt={movie.originalTitle}
+                    className="movie-poster"
+                  />
+                </Link>
               </div>
             );
           })}
-          
         </div>
-        <button className="scroll-btn right" onClick={scrollRight}>&gt;</button> {/* Botão para rolar à direita */}
-
+        <button className="scroll-btn right" onClick={scrollRight}>&gt;</button>
       </div>
+      
       <h2 className='subtitulo'>Lancamentos Recentes</h2>
+      
       <footer className='fimdapag'>
-        <a className='info' href="">Github do Projeto</a>
-        
+        <a className='info' href="https://github.com/joaofelippetrf/Imemdb">Github do Projeto</a>
       </footer>
     </div>
   );
