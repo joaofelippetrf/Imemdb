@@ -1,7 +1,8 @@
-import { useEffect, useState, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../App.css';
+import { Link } from 'react-router-dom';
 import Header from './header.jsx'; 
 import Footer from './footer.jsx';
 
@@ -51,11 +52,14 @@ const MoviesList = () => {
 
             return (
               <div className="movie-card" key={movie.id}>
-                <img
-                  src={posterUrl}
-                  alt={movie.originalTitle}
-                  className="movie-poster"
-                />
+                {/* Link para a página de detalhes do filme */}
+                <Link to={`/movies/${movie.id}`}>
+                  <img
+                    src={posterUrl}
+                    alt={movie.originalTitle}
+                    className="movie-poster"
+                  />
+                </Link>
               </div>
             );
           })}
