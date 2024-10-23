@@ -5,6 +5,7 @@ import MovieDetails from './paginas/filmeID'; // Import MovieDetails component
 import SearchResults from './paginas/search'; // Import SearchResults component
 import TopMovies from './paginas/Top100'; // Import TopMovies component
 
+
 function App() {
   return (
     <Router>
