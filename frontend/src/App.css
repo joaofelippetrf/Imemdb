@@ -1,8 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap'); /* Inclui a fonte Roboto */
 
+/* Fonte personalizada para 'android' */
 @font-face {
     font-family: 'android';
-    src: url('/fontes/idroid.otf') format('opentype'); /* Verifique se o caminho está correto */
+    src: url('/fontes/idroid.otf') format('opentype');
     font-weight: normal;
 }
 
@@ -13,55 +14,67 @@ html, body, #root {
   background-color: #1A1C29;
 }
 
-
-
 header {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: linear-gradient(to bottom,#024b86, #001338);
+    background-image: linear-gradient(to bottom, #024b86, #001338);
     height: 15%;
     padding: 3px;
     border-bottom: 1px solid white;
-    
 }
-.container-fullscreen{
-  max-width: 100vw;
+
+.container-fullscreen {
+    max-width: 100vw;
 }
 
 .logoime {
     height: 100px;
 }
 
-header h1 {
-    font-family: 'android', cursive; /* Aplique a fonte aqui */
+/* Aplicar Roboto ao título 'IMEdb' */
+.site-title {
+    font-family: 'Roboto', sans-serif;
     margin: 0;
     text-align: center;
     flex-grow: 1;
-    color: white; /* Adiciona cor branca ao texto */
-    padding: 0; 
+    color: white;
+    padding: 0;
     max-width: 20%;
     font-weight: bold;
 }
-  .movie-details {
-    display: flex; /* Define um layout flexbox */
-    flex-direction: row; /* Organiza os itens em uma linha */
-    align-items: flex-start; /* Alinha os itens ao topo */
-    gap: 20px; /* Espaço entre a imagem e as informações */
-    padding: 20px;
-    padding-top: 50px;
-  }
 
-  .movie-details img {
-    max-width: 300px; /* Define uma largura máxima para a imagem */
-    height: auto; /* Mantém a proporção da imagem */
-  }
+a {
+  font-family: 'Roboto', sans-serif; /* Fonte Roboto */
+  text-decoration: none; /* Remove o sublinhado */
+  color: white; /* Define a cor branca para os links */
+  margin: 0 10px; /* Adiciona mais espaço entre os links */
+  font-size: 22px; /* Tamanho da fonte */
+  transition: color 0.3s ease;
+  padding: 5px 10px; /* Adiciona um pouco de preenchimento para dar mais espaço */
+}
 
-  .movie-info {
-    display: flex;
-    flex-direction: column; /* Mantém o texto empilhado verticalmente */
-    justify-content: flex-start;
-  }
+/* Ao passar o mouse, o fundo será branco e a cor do texto será ajustada */
+a:hover {
+  color: #003DB8; /* Cor de destaque ao passar o mouse */
+  background-color: white; /* Fundo branco ao passar o mouse */
+  border-radius: 5px;
+  text-decoration: none; /* Garante que o sublinhado não volte */
+}
+
+/* Quando o link for clicado */
+a:active {
+  color: #ff4500; /* Cor ao ser clicado */
+}
+
+/* Espaço entre os botões para o hover não colar */
+nav {
+  display: flex;
+  justify-content: space-around; /* Distribui espaço entre os itens */
+  align-items: center; /* Centraliza verticalmente */
+  width: 30%; /* Ajusta o tamanho da área de navegação */
+}
+
 input {
     width: 40%;
     color: black;
@@ -69,18 +82,41 @@ input {
     height: 50px;
     border: 1px solid #fd6739;
     font-size: 20px;
+    margin-right: 10px;
+}
+
+.spacer {
+  width: 8px;
+  visibility: hidden;
 }
 
 button {
-    background-color: black;
-    color: white;
-    width: 180px;
-    height: 80px;
-    border-radius: 300px;
-    border: 1px solid rgba(0, 0, 0, 0.562);
-    font-size: 22px;
-    font-family: var(--fonte2);
+  cursor: pointer;
+  font-weight: 700;
+  transition: all 0.2s;
+  padding: 10px 20px;
+  border-radius: 100px;
+  background: #019fb7;
+  border: 2px solid transparent;
+  display: flex;
+  align-items: center;
+  font-size: 15px;
 }
+
+button:hover {
+  background: #019ab1c2;
+}
+
+button > svg {
+  width: 34px;
+  margin-left: 10px;
+  transition: transform 0.3s ease-in-out;
+}
+
+button:hover svg {
+  transform: translateX(5px);
+}
+
 
 .info{
     text-decoration: none; /* Remove o sublinhado padrão dos links */
