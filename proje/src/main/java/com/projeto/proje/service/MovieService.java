@@ -1,7 +1,8 @@
 package com.projeto.proje.service;
 
 import com.projeto.proje.entidades.Movie;
-import com.projeto.proje.entidades.repositorios.MovieRepository;
+import com.projeto.proje.repositorios.MovieRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -31,6 +32,9 @@ public class MovieService {
     }
     public List<Movie> searchMovies(String query) {
         return movieRepository.findByOriginalTitleContainingIgnoreCase(query);
+    }
+    public List<Movie> getRecentMovies() {
+        return movieRepository.findTop40ByOrderByReleaseDateDesc();
     }
     
 }

@@ -7,10 +7,10 @@
 }
 
 html, body, #root {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    background-color: #1A1C29;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #1A1C29;
 }
 
 
@@ -85,21 +85,20 @@ a:active {
 }
 
 .movies-container {
-  position: relative; /* Para posicionar os botões dentro deste contêiner */
+  position: relative;
   width: 100%;
   margin: 0;
   margin-top: 2px;
   background-color: #1A1C29;
   color: white;
-  height: auto; /* A altura agora será ajustada com base no conteúdo */
-
+  height: auto;
+  overflow: hidden; /* Garante que apenas o conteúdo visível seja mostrado */
 }
 
 .movies-carousel {
-  display: flex;
-  overflow-x: scroll;
-  scroll-behavior: smooth;
-  
+    display: flex;
+    overflow-x: scroll; /* Permite rolagem horizontal */
+    scroll-behavior: smooth; /* Transição suave ao rolar */
 }
 
 .movie-card {
@@ -143,7 +142,6 @@ a:active {
   justify-content: center;
   align-items: center;
   z-index: 10;
-
   bottom: 0;
   margin: auto;
   opacity: 0; /* Invisível por padrão */

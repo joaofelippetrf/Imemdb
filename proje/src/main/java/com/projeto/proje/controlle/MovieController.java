@@ -1,7 +1,7 @@
 package com.projeto.proje.controlle;
 
 import com.projeto.proje.entidades.Movie;
-import com.projeto.proje.entidades.repositorios.MovieRepository;
+import com.projeto.proje.repositorios.MovieRepository;
 import com.projeto.proje.service.MovieService;
 
 import java.util.Optional;
@@ -72,6 +72,10 @@ public class MovieController {
         }
         List<Movie> movies = movieService.searchMovies(query);
         return ResponseEntity.ok(movies);
+    }
+    @GetMapping("/recent")
+    public List<Movie> getRecentMovies() {
+        return movieService.getRecentMovies();
     }
 }
 

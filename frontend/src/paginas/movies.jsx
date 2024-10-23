@@ -11,6 +11,7 @@ const MoviesList = () => {
   const [recentReleases, setRecentReleases] = useState([]); // Estado para lançamentos recentes
   const [error, setError] = useState(null);
   const carouselRef = useRef(null);
+  const recentCarouselRef = useRef(null); // Ref para o carrossel de lançamentos recentes
 
   useEffect(() => {
     const fetchMovies = async () => {
@@ -37,6 +38,7 @@ const MoviesList = () => {
     fetchRecentReleases();
   }, []);
 
+  // Funções de rolagem para os filmes populares
   const scrollLeft = () => {
     if (carouselRef.current) {
       carouselRef.current.scrollLeft -= 165;
@@ -49,11 +51,25 @@ const MoviesList = () => {
     }
   };
 
+  // Funções de rolagem para os lançamentos recentes
+  const scrollRecentLeft = () => {
+    if (recentCarouselRef.current) {
+      recentCarouselRef.current.scrollLeft -= 165;
+    }
+  };
+
+  const scrollRecentRight = () => {
+    if (recentCarouselRef.current) {
+      recentCarouselRef.current.scrollLeft += 165;
+    }
+  };
+
   return (
     <div className="container-fullscreen">
       <Header /> 
       {error ? <p className="error-message">{error}</p> : null}
 
+      {/* Seção de Filmes Populares */}
       <div className="movies-container">
         <h2 className='subtitulo'>Filmes Populares</h2>
         <button className="scroll-btn left" onClick={scrollLeft}>&lt;</button>
@@ -80,31 +96,35 @@ const MoviesList = () => {
         <button className="scroll-btn right" onClick={scrollRight}>&gt;</button>
       </div>
 
-      <h2 className='subtitulo'>Lançamentos Recentes</h2>
-      <div className="movies-carousel">
-        {recentReleases.length > 0 ? (
-          recentReleases.map((movie) => {
-            const posterUrl = movie.posterpath
-              ? `https://image.tmdb.org/t/p/w500${movie.posterpath}`
-              : 'https://via.placeholder.com/500x750?text=Imagem+não+disponível';
+      <div className='movies-container'>
+        <h2 className='subtitulo'>Lançamentos Recentes</h2>
+        <button className="scroll-btn left" onClick={scrollRecentLeft}>&lt;</button>
+        <div className="movies-carousel" ref={recentCarouselRef}>
+          {recentReleases.length > 0 ? (
+            recentReleases.map((movie) => {
+              const posterUrl = movie.posterpath
+                ? `https://image.tmdb.org/t/p/w500${movie.posterpath}`
+                : 'https://via.placeholder.com/500x750?text=Imagem+não+disponível';
 
-            return (
-              <div className="movie-card" key={movie.id}>
-                <Link to={`/movies/${movie.id}`}>
-                  <img
-                    src={posterUrl}
-                    alt={movie.originalTitle}
-                    className="movie-poster"
-                  />
-                </Link>
-              </div>
-            );
-          })
-        ) : (
-          <p>Nenhum lançamento recente encontrado.</p>
-        )}
+              return (
+                <div className="movie-card" key={movie.id}>
+                  <Link to={`/movies/${movie.id}`}>
+                    <img
+                      src={posterUrl}
+                      alt={movie.originalTitle}
+                      className="movie-poster"
+                    />
+                  </Link>
+                </div>
+              );
+            })
+          ) : (
+            <p>Nenhum lançamento recente encontrado.</p>
+          )}
+        </div>
+        <button className="scroll-btn right" onClick={scrollRecentRight}>&gt;</button>
       </div>
-      
+
       <Footer />
     </div>
   );
