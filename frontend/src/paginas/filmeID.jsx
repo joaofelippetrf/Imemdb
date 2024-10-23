@@ -31,6 +31,15 @@ const MovieDetails = () => {
     return <p>Carregando...</p>;
   }
 
+  const formatDate = (dateString) => {
+    const [year, month, day] = dateString.split('-'); // Quebra a string de data
+    return `${day}/${month}/${year}`; // Retorna no formato dia/mês/ano
+  };
+
+  const formatNumber = (number) => {
+    return number.toLocaleString('pt-BR'); // Formata o número para o padrão brasileiro
+  };
+
   return (
     <div>
         <Header />    
@@ -42,11 +51,26 @@ const MovieDetails = () => {
                 />
             <div className="movie-info">
                 <h1 className='titulo'>{movie.originalTitle}</h1>
-                <p strong className='subtitulo'><strong className='subtitulo'>Budget:</strong> {movie.budget}$</p>
-                <p className='subtitulo'><strong>Data de lançamento:</strong> {movie.releaseDate}</p>
-                <p className='subtitulo'><strong className='subtitulo'>Sinopse:</strong> {movie.overview}</p>
+                
+
+                <p className='subtitulo'>
+                    <strong>Genre:</strong> {movie.genre}
+                </p>
+                
+                <p className='subtitulo'>
+                    <strong>Data de lançamento:</strong> {formatDate(movie.releaseDate)}
+                </p>
+                
+                <p className='subtitulo'>
+                    <strong>Overview:</strong> {movie.overview}
+                </p>
+
+                <p className='subtitulo'>
+                    <strong>Budget:</strong> {formatNumber(movie.budget)}$
+                </p>
+                
                 {/* Outros detalhes do filme */}
-            </div>
+                </div>
         </div>
     <Footer />
     </div>
