@@ -63,7 +63,7 @@ const Header = () => {
       {/* Navegação */}
       <nav className="headernav">
         <a href="/" className="info">Início</a>
-        <a href="/genero" className="info">Gênero</a>
+        <a href="/genres" className="info">Gênero</a>
         <a href="/top-movies" className="info">Top 100 Filmes</a>
       </nav>
     </header>
