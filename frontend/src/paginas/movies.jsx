@@ -72,7 +72,7 @@ const MoviesList = () => {
 
       {/* Seção de Filmes Populares */}
       <div className="movies-container">
-        <h2 className='subtitulo'>Filmes Populares</h2>
+        <h2 className='subtitulo'>Popular Movies</h2>
         <button className="scroll-btn left" onClick={scrollLeft}>&lt;</button>
         <div className="movies-carousel" ref={carouselRef}>
           {movies
@@ -98,7 +98,7 @@ const MoviesList = () => {
       </div>
 
       <div className='movies-container'>
-        <h2 className='subtitulo'>Lançamentos Recentes</h2>
+        <h2 className='subtitulo'>Recent Releases</h2>
         <button className="scroll-btn left" onClick={scrollRecentLeft}>&lt;</button>
         <div className="movies-carousel" ref={recentCarouselRef}>
           {recentReleases.length > 0 ? (

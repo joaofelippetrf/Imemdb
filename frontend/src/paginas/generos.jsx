@@ -52,7 +52,7 @@ const GenresCarousel = () => {
 
       {genres.map((genre) => (
         <div key={genre} className="movie-container">
-          <h2 className="subtitulo">{genre} Filmes</h2>
+          <h2 className="subtitulo">{genre} Movies</h2>
           <button className="scroll-btn left" onClick={() => scrollLeft(genre)}>
             &lt;
           </button>

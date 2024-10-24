@@ -32,7 +32,7 @@ const SearchResults = () => {
   return (
     <div className="container-fullscreen">
       <Header /> {/* Usar o cabeçalho aqui */}
-      <h2 className='subtitulo'>Resultados da Busca</h2>
+      <h2 className='subtitulo'>Search Results</h2>
       {error && <p>{error}</p>}
       <div className="movie-search" id='search'>
         {movies.length > 0 ? (

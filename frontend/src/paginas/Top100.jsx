@@ -25,7 +25,7 @@ const TopMovies = () => {
   return (
     <div className="container-fullscreen">
       <Header /> {/* Usar o cabeçalho aqui */}
-      <h2 className='subtitulo'>Top 100 Filmes</h2>
+      <h2 className='subtitulo'>Top 100 Movies</h2>
       {error && <p>{error}</p>}
       <div className="movie-search">
         {movies.length > 0 ? (

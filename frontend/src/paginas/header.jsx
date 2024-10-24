@@ -18,7 +18,7 @@ const Header = () => {
         <input
           type="text"
           className="searchInput" // Adiciona a classe para o estilo
-          placeholder="Pesquisar Filme..."
+          placeholder="Search Movie..."
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
         />
@@ -62,9 +62,9 @@ const Header = () => {
       
       {/* Navegação */}
       <nav className="headernav">
-        <a href="/" className="info">Início</a>
-        <a href="/genres" className="info">Gênero</a>
-        <a href="/top-movies" className="info">Top 100 Filmes</a>
+        <a href="/" className="info">Home</a>
+        <a href="/genres" className="info">Genders</a>
+        <a href="/top-movies" className="info">Top 100 Movies</a>
       </nav>
     </header>
   );
