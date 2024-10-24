@@ -29,11 +29,14 @@ const TopMovies = () => {
       {error && <p>{error}</p>}
       <div className="movie-search">
         {movies.length > 0 ? (
-          movies.map(movie => (
+        // Filtra filmes com posterpath disponível
+        movies
+          .filter(movie => movie.posterpath)
+          .map(movie => (
             <div className="movie-card" id='top100' key={movie.id}>
               <a href={`/movies/${movie.id}`}> {/* Link para os detalhes do filme */}
                 <img
-                  src={movie.posterpath ? `https://image.tmdb.org/t/p/w500${movie.posterpath}` : 'https://via.placeholder.com/500x750?text=Imagem+não+disponível'}
+                  src={`https://image.tmdb.org/t/p/w500${movie.posterpath}`}
                   alt={movie.originalTitle}
                   className="movie-poster"
                 />
@@ -41,10 +44,11 @@ const TopMovies = () => {
               </a>
             </div>
           ))
-        ) : (
-          <p>Nenhum filme encontrado.</p>
-        )}
-      </div>
+      ) : (
+        <p>Nenhum filme encontrado.</p>
+      )}
+    </div>
+
       <Footer />
     </div>
   );
