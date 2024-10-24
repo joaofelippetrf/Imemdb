@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import logo from '/src/assets/logo.png'; // Verifique se o caminho está correto
+import logo from '/src/assets/logo.png'; 
 
 const Header = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -63,7 +63,7 @@ const Header = () => {
       {/* Navegação */}
       <nav className="headernav">
         <a href="/" className="info">Início</a>
-        <a href="/genero" className="info">Gênero</a>
+        <a href="/genres" className="info">Gênero</a>
         <a href="/top-movies" className="info">Top 100 Filmes</a>
       </nav>
     </header>

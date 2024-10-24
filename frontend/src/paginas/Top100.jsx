@@ -12,7 +12,7 @@ const TopMovies = () => {
     const fetchTopMovies = async () => {
       try {
         const response = await axios.get('http://localhost:8081/Movies/top100'); // Endpoint para os 100 filmes mais populares
-        setMovies(response.data);
+        setMovies(response.data.slice(0, 100)); // Filtra para pegar apenas os 100 primeiros filmes
       } catch (error) {
         console.error('Erro ao buscar os 100 filmes:', error);
         setError('Erro ao carregar os filmes.');
@@ -30,7 +30,7 @@ const TopMovies = () => {
       <div className="movie-search">
         {movies.length > 0 ? (
           movies.map(movie => (
-            <div className="movie-card" key={movie.id}>
+            <div className="movie-card" id='top100' key={movie.id}>
               <a href={`/movies/${movie.id}`}> {/* Link para os detalhes do filme */}
                 <img
                   src={movie.posterpath ? `https://image.tmdb.org/t/p/w500${movie.posterpath}` : 'https://via.placeholder.com/500x750?text=Imagem+não+disponível'}

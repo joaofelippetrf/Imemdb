@@ -3,7 +3,7 @@
 /* Fonte personalizada para 'android' */
 @font-face {
     font-family: 'android';
-    src: url('/fontes/idroid.otf') format('opentype');
+    src: url('/fontes/idroid.otf') format('opentype'); 
     font-weight: normal;
 }
 
@@ -73,6 +73,9 @@ button:active {
 
 .container-fullscreen {
     max-width: 100vw;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .logoime {
@@ -90,7 +93,26 @@ button:active {
     max-width: 20%;
     font-weight: bold;
 }
+  .movie-details {
+    display: flex; 
+    flex-direction: row; 
+    align-items: flex-start; 
+    gap: 20px; 
+    padding: 20px;
+    padding-top: 50px;
+  }
 
+  .movie-details img {
+    max-width: 300px; 
+    height: auto; 
+    margin-top: 35px;
+  }
+
+  .movie-info {
+    display: flex;
+    flex-direction: column; 
+    justify-content: flex-start;
+  }
 nav.headernav a{
   font-family: 'Roboto', sans-serif; /* Fonte Roboto */
   text-decoration: none; /* Remove o sublinhado */
@@ -125,29 +147,33 @@ nav.headernav{
 }
 
 
+.spacer {
+  flex-grow: 1;
+}
+
 
 
 
 
 
 .info{
-    text-decoration: none; /* Remove o sublinhado padrão dos links */
-    color: white; /* Cor branca para os links */
-    margin: 0 10px; /* Espaçamento entre os links */
-    font-size: 22px; /* Tamanho da fonte */
-    font-family: 'android', cursive; /* Fonte personalizada */
-    transition: color 0.3s ease; /* Transição suave ao passar o mouse */
+    text-decoration: none; 
+    color: white; 
+    margin: 0 10px; 
+    font-size: 22px; 
+    font-family: 'android', cursive; 
+    transition: color 0.3s ease; 
     text-align: center;
 }
 
 a:hover {
-    color: #003DB8; /* Cor de destaque ao passar o mouse */
+    color: #003DB8; 
     background-color: white;
     border-radius: 5px;
 } 
 
 a:active {
-    color: #ff4500; /* Cor quando o link é clicado */
+    color: #ff4500; 
 }
 
 .movies-container {
@@ -178,31 +204,40 @@ a:active {
   overflow: hidden; /* Garante que o conteúdo não saia do card */
   height: 225px;
   border: 1px solid white;
+ 
+  
+}
+#search{
+  margin-bottom: 10px;
+}
+#top100{
+  margin-bottom: 10px;
 }
 .movie-card:hover {
-  transform: translateY(-5px); /* Leve elevação ao passar o mouse */
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Sombra ao passar o mouse */
+  transform: translateY(-5px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
 .movie-poster {
   width: 100%;
   border-radius: 3px;
-  transition: transform 0.3s ease; /* Transição suave ao passar o mouse */
+  transition: transform 0.3s ease; 
   height: 100%;
+  
 }
 
 
 
-/* Inicialmente deixa os botões invisíveis */
+
 .scroll-btn {
   position: absolute;
   background-color: rgba(128, 128, 128, 0.8);
   border: none;
   color: white;
-  font-size: 40px; /* Aumenta o tamanho da seta */
+  font-size: 40px; 
   cursor: pointer;
   padding: 0;
   border-radius: 5px;
-  transition: background-color 0.3s ease, opacity 0.3s ease; /* Transição suave */
+  transition: background-color 0.3s ease, opacity 0.3s ease; 
   width: 60px;
   height: 225px;
   display: flex;
@@ -211,42 +246,44 @@ a:active {
   z-index: 10;
   bottom: 0;
   margin: auto;
-  opacity: 0; /* Invisível por padrão */
-  pointer-events: none; /* Evita que o botão capture eventos de clique quando invisível */
+  opacity: 0; 
+  pointer-events: none; 
 }
 .movies-container:hover .scroll-btn {
-  opacity: 1; /* Torna os botões visíveis */
-  pointer-events: all; /* Habilita os eventos de clique quando visíveis */
+  opacity: 1; 
+  pointer-events: all; 
 }
 
 
 
 .scroll-btn.left {
-  left: 0; /* Botão esquerdo
+  left: 0; 
 
-
-
-
-.scroll-btn.left {
-  left: 0px; /* Distância da borda esquerda */
 }
 
 .scroll-btn.right {
-  right: 0px; /* Distância da borda direita */
+  right: 0px; 
 }
 
 .scroll-btn:hover {
-  background-color: rgba(100, 100, 100, 0.9); /* Escurecer um pouco ao passar o mouse */
+  background-color: rgba(100, 100, 100, 0.9); 
 }
 
 .movies-carousel {
   display: flex;
-  overflow-x: hidden; /* Oculta a barra de rolagem */
-  transition: transform 0.2s; /* Adiciona uma transição suave ao mover */
+  overflow-x: hidden; 
+  transition: transform 0.2s; 
   
   
 }
 
+.titulo{
+  color: white; 
+  margin-left: 10px;
+  margin-top: 30px;
+  font-size: 60px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
 .titulo{
   color: white; 
   margin-left: 10px;
@@ -264,7 +301,7 @@ a:active {
 }
 
 .fimdapag {
-  position: bottom;
+  position: relative;
   bottom: 0;
   width: 100%;
   background-image: linear-gradient(to bottom,#024b86, #001338);
@@ -273,6 +310,8 @@ a:active {
   padding: 10px;
   border-top: 1px solid white;
   height: 7%;
+  margin-top: 15px;
+  
 }
 
 .movie-search {
@@ -286,4 +325,14 @@ a:active {
   display: flex;
   justify-content: flex-start;
   flex-wrap: wrap; /* Adicione esta linha para permitir que os itens "desçam" */
+}
+
+.movieinfo{
+  color: white; 
+  margin-left: 10px;
+  margin-top: 30px;
+  font-size: 24px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  border-bottom: 1px solid white;
+
 }

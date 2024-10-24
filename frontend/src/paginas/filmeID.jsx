@@ -1,14 +1,13 @@
-import React, { useState, useEffect, useRef } from 'react';
+import  { useState, useEffect} from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import Header from './header.jsx'; 
 import Footer from './footer.jsx';
 
 const MovieDetails = () => {
-  const { id } = useParams(); // Pega o id do filme a partir da URL
+  const { id } = useParams(); 
   const [movie, setMovie] = useState(null);
   const [error, setError] = useState(null);
-  const carouselRef = useRef(null); // Ref for the carousela
 
   useEffect(() => {
     const fetchMovie = async () => {
@@ -54,19 +53,19 @@ const MovieDetails = () => {
                 <h1 className='titulo'>{movie.originalTitle}</h1>
                 
 
-                <p className='subtitulo'>
+                <p className='movieinfo'>
                     <strong>Genre:</strong> {movie.genre}
                 </p>
                 
-                <p className='subtitulo'>
+                <p className='movieinfo'>
                     <strong>Data de lançamento:</strong> {formatDate(movie.releaseDate)}
                 </p>
                 
-                <p className='subtitulo'>
+                <p className='movieinfo'>
                     <strong>Overview:</strong> {movie.overview}
                 </p>
 
-                <p className='subtitulo'>
+                <p className='movieinfo'>
                     <strong>Budget:</strong> {formatNumber(movie.budget)}$
                 </p>
                 
@@ -75,7 +74,6 @@ const MovieDetails = () => {
         </div>
     <Footer />
     </div>
-
   );
 };
 
