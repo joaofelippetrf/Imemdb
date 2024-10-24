@@ -264,7 +264,7 @@ a:active {
 }
 
 .fimdapag {
-  position: fixed;
+  position: bottom;
   bottom: 0;
   width: 100%;
   background-image: linear-gradient(to bottom,#024b86, #001338);
