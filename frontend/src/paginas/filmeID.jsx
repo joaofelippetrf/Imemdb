@@ -58,7 +58,7 @@ const MovieDetails = () => {
                 </p>
                 
                 <p className='subtitulo'>
-                    <strong>Data de lançamento:</strong> {formatDate(movie.releaseDate)}
+                    <strong>Release Date:</strong> {formatDate(movie.releaseDate)}
                 </p>
                 
                 <p className='subtitulo'>
