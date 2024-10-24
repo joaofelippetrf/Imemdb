@@ -19,10 +19,14 @@ Um aplicativo web que permite aos usuários explorar e visualizar informações 
 - **Backend**: 
   - Spring Boot (Java)
   - Banco de Dados: MySQL
+  - 
+## Instalação do Projeto
 
-## Pré-requisitos
-
-Antes de começar, você precisará ter instalado em sua máquina:
-
-## Instalação
-
+- Instalar node.js, XAMPP(MySQL) e JAVA
+- Puxar código do github
+- Rodar o MySQL através do XAMPP.
+- Criar o banco de dados local e atualizar com as informações no arquivo :"proje/src/main/java/resources/application.properties"
+- Abastecer banco de dados com  a API do TMDB, executando arquivo : "proje/automatizacao/getdados.py"
+- Rodar a aplicação backend através da extensão do Spring Boot ou executando o comando "gradlew bootRun"
+- Navegar para a pasta do frontend: "cd frontend"
+- Executar os comandos: "npm install" e "npm run dev" para rodar aplicação frontend.
