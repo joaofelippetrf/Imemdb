@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import logo from '/src/assets/logo.png'; // Verifique se o caminho está correto
+import logo from '/src/assets/logo.png'; 
 
 const Header = () => {
   const [searchQuery, setSearchQuery] = useState('');

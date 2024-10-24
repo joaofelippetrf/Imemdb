@@ -5,7 +5,7 @@ import Header from './header.jsx';
 import Footer from './footer.jsx';
 
 const MovieDetails = () => {
-  const { id } = useParams(); // Pega o id do filme a partir da URL
+  const { id } = useParams(); 
   const [movie, setMovie] = useState(null);
   const [error, setError] = useState(null);
   const carouselRef = useRef(null); // Ref for the carousela
@@ -75,7 +75,6 @@ const MovieDetails = () => {
         </div>
     <Footer />
     </div>
-
   );
 };
 

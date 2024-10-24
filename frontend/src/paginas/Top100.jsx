@@ -30,7 +30,7 @@ const TopMovies = () => {
       <div className="movie-search">
         {movies.length > 0 ? (
           movies.map(movie => (
-            <div className="movie-card" key={movie.id}>
+            <div className="movie-card" id='top100' key={movie.id}>
               <a href={`/movies/${movie.id}`}> {/* Link para os detalhes do filme */}
                 <img
                   src={movie.posterpath ? `https://image.tmdb.org/t/p/w500${movie.posterpath}` : 'https://via.placeholder.com/500x750?text=Imagem+não+disponível'}

@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; // Import Router components
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; 
 import './App.css';
 import MoviesList from './paginas/movies'; // Ensure this path is correct
 import MovieDetails from './paginas/filmeID'; // Import MovieDetails component
