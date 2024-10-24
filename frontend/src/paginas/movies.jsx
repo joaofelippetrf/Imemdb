@@ -17,7 +17,8 @@ const MoviesList = () => {
     const fetchMovies = async () => {
       try {
         const response = await axios.get('http://localhost:8081/Movies/all');
-        setMovies(response.data);
+        setMovies(response.data.slice(0, 20));
+        
       } catch (error) {
         console.error('Erro ao buscar filmes:', error);
         setError('Erro ao carregar filmes.');
@@ -27,7 +28,7 @@ const MoviesList = () => {
     const fetchRecentReleases = async () => {
       try {
         const response = await axios.get('http://localhost:8081/Movies/recent'); // Endpoint para lançamentos recentes
-        setRecentReleases(response.data);
+        setRecentReleases(response.data.slice(0, 20));
       } catch (error) {
         console.error('Erro ao buscar lançamentos recentes:', error);
         setError('Erro ao carregar lançamentos recentes.');

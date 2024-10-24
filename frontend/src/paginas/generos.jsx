@@ -7,7 +7,7 @@ import Header from './header.jsx';
 import Footer from './footer.jsx';
 
 const GenresCarousel = () => {
-  const [genres, setGenres] = useState([
+  const [genres] = useState([
     'Action', 'Comedy', 'Drama', 'Horror', 'Romance'
   ]); // Lista de gêneros a serem buscados
   const [moviesByGenre, setMoviesByGenre] = useState({});

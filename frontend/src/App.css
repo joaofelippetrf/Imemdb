@@ -294,8 +294,7 @@ a:active {
 }
 
 .fimdapag {
-  position: relative;
-  bottom: 0;
+  position: fixed bottom;
   width: 100%;
   background-image: linear-gradient(to bottom,#024b86, #001338);
   color: white;
@@ -318,4 +317,14 @@ a:active {
   display: flex;
   justify-content: flex-start;
   flex-wrap: wrap; /* Adicione esta linha para permitir que os itens "desçam" */
+}
+
+.movieinfo{
+  color: white; 
+  margin-left: 10px;
+  margin-top: 30px;
+  font-size: 24px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  border-bottom: 1px solid white;
+
 }

@@ -12,7 +12,7 @@ const TopMovies = () => {
     const fetchTopMovies = async () => {
       try {
         const response = await axios.get('http://localhost:8081/Movies/top100'); // Endpoint para os 100 filmes mais populares
-        setMovies(response.data);
+        setMovies(response.data.slice(0, 100)); // Filtra para pegar apenas os 100 primeiros filmes
       } catch (error) {
         console.error('Erro ao buscar os 100 filmes:', error);
         setError('Erro ao carregar os filmes.');
