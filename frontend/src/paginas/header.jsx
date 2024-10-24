@@ -1,7 +1,7 @@
-// src/components/Header.js
+
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import logo from '/src/assets/logo.png'; // Certifique-se de que o caminho está correto
+import logo from '/src/assets/logo.png'; 
 
 const Header = () => {
   const [searchQuery, setSearchQuery] = useState('');

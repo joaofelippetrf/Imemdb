@@ -45,25 +45,25 @@ const MoviesList = () => {
         <h2 className='subtitulo'>Filmes Populares</h2>
         <button className="scroll-btn left" onClick={scrollLeft}>&lt;</button>
         <div className="movies-carousel" ref={carouselRef}>
-          {movies.map((movie) => {
-            const posterUrl = movie.posterpath
-              ? `https://image.tmdb.org/t/p/w500${movie.posterpath}`
-              : 'https://via.placeholder.com/500x750?text=Imagem+não+disponível';
+          {movies
+            .filter((movie) => movie.posterpath) 
+            .map((movie) => {
+              const posterUrl = `https://image.tmdb.org/t/p/w500${movie.posterpath}`;
 
-            return (
-              <div className="movie-card" key={movie.id}>
-                {/* Link para a página de detalhes do filme */}
-                <Link to={`/movies/${movie.id}`}>
-                  <img
-                    src={posterUrl}
-                    alt={movie.originalTitle}
-                    className="movie-poster"
-                  />
-                </Link>
-              </div>
-            );
-          })}
+              return (
+                <div className="movie-card" key={movie.id}>
+                  <a href={`/movies/${movie.id}`}>
+                    <img
+                      src={posterUrl}
+                      alt={movie.originalTitle}
+                      className="movie-poster"
+                    />
+                  </a>
+                </div>
+              );
+            })}
         </div>
+
         <button className="scroll-btn right" onClick={scrollRight}>&gt;</button>
       </div>
 
