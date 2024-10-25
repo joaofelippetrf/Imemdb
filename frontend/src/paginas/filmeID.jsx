@@ -73,6 +73,7 @@ const MovieDetails = () => {
                 </div>
         </div>
     <Footer />
+    <div className="spacer"></div>
     </div>
   );
 };

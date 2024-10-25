@@ -34,12 +34,12 @@ const SearchResults = () => {
       <Header /> {/* Usar o cabeçalho aqui */}
       <h2 className='subtitulo'>Search Results</h2>
       {error && <p>{error}</p>}
-      <div className="movie-search" id='search'>
+      <div className="movie-search">
         {movies.length > 0 ? (
           movies
             .filter(movie => movie.posterpath) // Filtra os filmes que têm posterpath
             .map(movie => (
-              <div className="movie-card" key={movie.id}>
+              <div className="movie-card"  id='search' key={movie.id}>
                 <img
                   src={`https://image.tmdb.org/t/p/w500${movie.posterpath}`}
                   alt={movie.originalTitle}

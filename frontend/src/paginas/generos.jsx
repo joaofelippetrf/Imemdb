@@ -91,6 +91,7 @@ const GenresCarousel = () => {
 
 
       <Footer />
+      <div className="spacer"></div>
     </div>
   );
 };

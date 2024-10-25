@@ -51,4 +51,4 @@ def fetch_and_post_movies(start_id, end_id):
         time.sleep(0.05)  # Adicionar um pequeno atraso para evitar limite de taxa da API
 
 # Coletar e enviar dados dos filmes do ID 1 até 550
-fetch_and_post_movies(1, 2000)
+fetch_and_post_movies(2000, 10000)

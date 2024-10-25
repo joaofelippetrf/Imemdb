@@ -125,8 +125,9 @@ const MoviesList = () => {
         </div>
         <button className="scroll-btn right" onClick={scrollRecentRight}>&gt;</button>
       </div>
-
+      <div className="spacer"></div>
       <Footer />
+      
     </div>
   );
 };
