@@ -1,4 +1,4 @@
-import  { useState, useEffect} from 'react';
+import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import Header from './header.jsx'; 
@@ -31,6 +31,11 @@ const MovieDetails = () => {
     return <p>Carregando...</p>;
   }
 
+  // Verifica se o pôster existe
+  if (!movie.posterpath) {
+    return <p>Este filme não está disponível no momento.</p>; // Mensagem de erro ou você pode redirecionar
+  }
+
   const formatDate = (dateString) => {
     const [year, month, day] = dateString.split('-'); // Quebra a string de data
     return `${day}/${month}/${year}`; // Retorna no formato dia/mês/ano
@@ -42,38 +47,30 @@ const MovieDetails = () => {
 
   return (
     <div>
-        <Header />    
-
-        <div className="movie-details">
-            <img
-                src={movie.posterpath ? `https://image.tmdb.org/t/p/w500${movie.posterpath}` : 'https://via.placeholder.com/500x750?text=Imagem+não+disponível'}
-                alt={movie.originalTitle}
-                />
-            <div className="movie-info">
-                <h1 className='titulo'>{movie.originalTitle}</h1>
-                
-
-                <p className='movieinfo'>
-                    <strong>Genre:</strong> {movie.genre}
-                </p>
-                
-                <p className='movieinfo'>
-                    <strong>Release DATE:</strong> {formatDate(movie.releaseDate)}
-                </p>
-                
-                <p className='movieinfo'>
-                    <strong>Overview:</strong> {movie.overview}
-                </p>
-
-                <p className='movieinfo'>
-                    <strong>Budget:</strong> {formatNumber(movie.budget)}$
-                </p>
-                
-                {/* Outros detalhes do filme */}
-                </div>
+      <Header />    
+      <div className="movie-details">
+        <img
+          src={`https://image.tmdb.org/t/p/w500${movie.posterpath}`}
+          alt={movie.originalTitle}
+        />
+        <div className="movie-info">
+          <h1 className='titulo'>{movie.originalTitle}</h1>
+          <p className='movieinfo'>
+            <strong>Genre:</strong> {movie.genre}
+          </p>
+          <p className='movieinfo'>
+            <strong>Release DATE:</strong> {formatDate(movie.releaseDate)}
+          </p>
+          <p className='movieinfo'>
+            <strong>Overview:</strong> {movie.overview}
+          </p>
+          <p className='movieinfo'>
+            <strong>Budget:</strong> {formatNumber(movie.budget)}$
+          </p>
+          {/* Outros detalhes do filme */}
         </div>
-    <Footer />
-    <div className="spacer"></div>
+      </div>
+      <Footer />
     </div>
   );
 };

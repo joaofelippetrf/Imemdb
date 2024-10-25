@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useLocation } from 'react-router-dom';
@@ -31,15 +30,15 @@ const SearchResults = () => {
 
   return (
     <div className="container-fullscreen">
-      <Header /> {/* Usar o cabeçalho aqui */}
+      <Header />
       <h2 className='subtitulo'>Search Results</h2>
-      {error && <p>{error}</p>}
+      {error && <p className="error-message">{error}</p>}
       <div className="movie-search">
         {movies.length > 0 ? (
           movies
             .filter(movie => movie.posterpath) // Filtra os filmes que têm posterpath
             .map(movie => (
-              <div className="movie-card"  id='search' key={movie.id}>
+              <div className="movie-card" id='search' key={movie.id}>
                 <img
                   src={`https://image.tmdb.org/t/p/w500${movie.posterpath}`}
                   alt={movie.originalTitle}

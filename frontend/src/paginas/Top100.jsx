@@ -26,28 +26,28 @@ const TopMovies = () => {
     <div className="container-fullscreen">
       <Header /> {/* Usar o cabeçalho aqui */}
       <h2 className='subtitulo'>Top 100 Movies</h2>
-      {error && <p>{error}</p>}
+      {error && <p className="error-message">{error}</p>} {/* Exibe mensagem de erro, se houver */}
       <div className="movie-search">
         {movies.length > 0 ? (
-        // Filtra filmes com posterpath disponível
-        movies
-          .filter(movie => movie.posterpath)
-          .map(movie => (
-            <div className="movie-card" id='top100' key={movie.id}>
-              <a href={`/movies/${movie.id}`}> {/* Link para os detalhes do filme */}
-                <img
-                  src={`https://image.tmdb.org/t/p/w500${movie.posterpath}`}
-                  alt={movie.originalTitle}
-                  className="movie-poster"
-                />
-                <h2>{movie.originalTitle}</h2>
-              </a>
-            </div>
-          ))
-      ) : (
-        <p>Nenhum filme encontrado.</p>
-      )}
-    </div>
+          // Filtra filmes com posterpath disponível
+          movies
+            .filter(movie => movie.posterpath)
+            .map(movie => (
+              <div className="movie-card" id='top100' key={movie.id}>
+                <a href={`/movies/${movie.id}`}> {/* Link para os detalhes do filme */}
+                  <img
+                    src={`https://image.tmdb.org/t/p/w500${movie.posterpath}`}
+                    alt={movie.originalTitle}
+                    className="movie-poster"
+                  />
+                  <h2>{movie.originalTitle}</h2>
+                </a>
+              </div>
+            ))
+        ) : (
+          <p>Nenhum filme encontrado.</p>
+        )}
+      </div>
 
       <Footer />
     </div>
