@@ -8,7 +8,7 @@ import Footer from './footer.jsx';
 
 const GenresCarousel = () => {
   const [genres] = useState([
-    'Action', 'Comedy', 'Drama', 'Horror', 'Romance'
+    'Action', 'Comedy', 'Drama', 'Horror', 'Romance', 'Animation'
   ]); // Lista de gêneros a serem buscados
   const [moviesByGenre, setMoviesByGenre] = useState({});
   const [error, setError] = useState(null);

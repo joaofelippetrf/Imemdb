@@ -67,9 +67,9 @@ const MoviesList = () => {
       <Header /> 
       {error ? <p className="error-message">{error}</p> : null}
 
-      {/* Seção de Filmes Populares */}
+      
       <div className="movies-container">
-        <h2 className='subtitulo'>Popular Movies</h2>
+        <h2 className='subtitulo'>Movies you may like</h2>
         <button className="scroll-btn left" onClick={scrollLeft}>&lt;</button>
         <div className="movies-carousel" ref={carouselRef}>
           {movies.length > 0 ? (
@@ -91,14 +91,14 @@ const MoviesList = () => {
                 );
               })
           ) : (
-            <p>Nenhum filme disponível.</p>
+            <p></p>
           )}
         </div>
 
         <button className="scroll-btn right" onClick={scrollRight}>&gt;</button>
       </div>
 
-      {/* Seção de Lançamentos Recentes */}
+      
       <div className='movies-container'>
         <h2 className='subtitulo'>Recent Releases</h2>
         <button className="scroll-btn left" onClick={scrollRecentLeft}>&lt;</button>
@@ -122,7 +122,7 @@ const MoviesList = () => {
                 );
               })
           ) : (
-            <p>Nenhum lançamento recente encontrado.</p>
+            <p></p>
           )}
         </div>
         <button className="scroll-btn right" onClick={scrollRecentRight}>&gt;</button>
