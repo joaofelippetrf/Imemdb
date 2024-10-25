@@ -51,43 +51,32 @@ const GenresCarousel = () => {
       {error ? <p className="error-message">{error}</p> : null}
 
       {genres.map((genre) => (
-        <div key={genre} className="movie-container">
-          <h2 className="subtitulo">{genre} Movies</h2>
-          <button className="scroll-btn left" onClick={() => scrollLeft(genre)}>
-            &lt;
-          </button>
-          <div
-            className="movies-carousel"
-            ref={(el) => (carouselRefs.current[genre] = el)} // Salva referência para cada carrossel
-          >
-            {moviesByGenre[genre] && moviesByGenre[genre].length > 0 ? (
-              // Filtra filmes com posterpath disponível
-              moviesByGenre[genre]
-                .filter((movie) => movie.posterpath)
-                .map((movie) => {
-                  const posterUrl = `https://image.tmdb.org/t/p/w500${movie.posterpath}`;
+  <div key={genre} className="movies-container"> {/* Altere de "movie-container" para "movies-container" */}
+    <h2 className="subtitulo">{genre} Movies</h2>
+    <button className="scroll-btn left" onClick={() => scrollLeft(genre)}>&lt;</button>
+    
+    <div className="movies-carousel" ref={(el) => (carouselRefs.current[genre] = el)}>
+      {moviesByGenre[genre] && moviesByGenre[genre].length > 0 ? (
+        moviesByGenre[genre]
+          .filter((movie) => movie.posterpath)
+          .map((movie) => {
+            const posterUrl = `https://image.tmdb.org/t/p/w500${movie.posterpath}`;
+            return (
+              <div className="movie-card" key={movie.id}>
+                <Link to={`/movies/${movie.id}`}>
+                  <img src={posterUrl} alt={movie.originalTitle} className="movie-poster" />
+                </Link>
+              </div>
+            );
+          })
+      ) : (
+        <p>Nenhum filme encontrado para {genre}.</p>
+      )}
+    </div>
 
-                  return (
-                    <div className="movie-card" key={movie.id}>
-                      <Link to={`/movies/${movie.id}`}>
-                        <img
-                          src={posterUrl}
-                          alt={movie.originalTitle}
-                          className="movie-poster"
-                        />
-                      </Link>
-                    </div>
-                  );
-                })
-            ) : (
-              <p>Nenhum filme encontrado para {genre}.</p>
-            )}
-          </div>
-          <button className="scroll-btn right" onClick={() => scrollRight(genre)}>
-            &gt;
-          </button>
-        </div>
-      ))}
+    <button className="scroll-btn right" onClick={() => scrollRight(genre)}>&gt;</button>
+  </div>
+))}
 
 
       <Footer />
