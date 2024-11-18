@@ -7,7 +7,7 @@ const Header = () => {
   const navigate = useNavigate();
 
   const handleSearch = () => {
-    if (!searchQuery.trim()) return; // Verifica se o campo de pesquisa está vazio
+    if (!searchQuery.trim()) return; 
     navigate(`/search-results?query=${searchQuery}`);
   };
 
@@ -23,7 +23,7 @@ const Header = () => {
           onChange={(e) => setSearchQuery(e.target.value)}
         />
         <button className="searchButton" onClick={handleSearch}>
-          {/* Ícone de pesquisa */}
+          
           <svg xmlns="http://www.w3.org/2000/svg" width="29" height="29" viewBox="0 0 29 29" fill="none">
             <g clipPath="url(#clip0_2_17)">
               <g filter="url(#filter0_d_2_17)">
@@ -57,10 +57,9 @@ const Header = () => {
       </div>
       <h1 className="site-title">IMEdb</h1>
 
-      {/* Componente de busca */}
       
       
-      {/* Navegação */}
+      
       <nav className="headernav">
         <a href="/" className="info">Home</a>
         <a href="/genres" className="info">Genders</a>

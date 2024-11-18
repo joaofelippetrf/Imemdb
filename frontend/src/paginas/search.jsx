@@ -36,7 +36,7 @@ const SearchResults = () => {
       <div className="movie-search">
         {movies.length > 0 ? (
           movies
-            .filter(movie => movie.posterpath) // Filtra os filmes que têm posterpath
+            .filter(movie => movie.posterpath) 
             .map(movie => (
               <div className="movie-card" id='search' key={movie.id}>
                 <img

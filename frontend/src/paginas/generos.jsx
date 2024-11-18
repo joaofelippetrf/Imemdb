@@ -9,11 +9,11 @@ import Footer from './footer.jsx';
 const GenresCarousel = () => {
   const [genres] = useState([
     'Action', 'Comedy', 'Drama', 'Horror', 'Romance', 'Animation'
-  ]); // Lista de gêneros a serem buscados
+  ]); 
   const [moviesByGenre, setMoviesByGenre] = useState({});
   const [error, setError] = useState(null);
 
-  const carouselRefs = useRef({}); // Referências para múltiplos carrosséis
+  const carouselRefs = useRef({}); 
 
   useEffect(() => {
     const fetchMoviesByGenre = async (genre) => {
@@ -29,10 +29,10 @@ const GenresCarousel = () => {
       }
     };
 
-    genres.forEach(fetchMoviesByGenre); // Buscar filmes para cada gênero
+    genres.forEach(fetchMoviesByGenre); 
   }, [genres]);
 
-  // Funções de rolagem para os carrosséis
+ 
   const scrollLeft = (genre) => {
     if (carouselRefs.current[genre]) {
       carouselRefs.current[genre].scrollLeft -= 165;
@@ -48,7 +48,7 @@ const GenresCarousel = () => {
   return (
     <div className="container-fullscreen">
       <Header />
-      {error && <p className="error-message">{error}</p>} {/* Exibe mensagem de erro, se houver */}
+      {error && <p className="error-message">{error}</p>} 
 
       {genres.map((genre) => (
         <div key={genre} className="movies-container">
@@ -58,7 +58,7 @@ const GenresCarousel = () => {
           <div className="movies-carousel" ref={(el) => (carouselRefs.current[genre] = el)}>
             {moviesByGenre[genre] && moviesByGenre[genre].length > 0 ? (
               moviesByGenre[genre]
-                .filter((movie) => movie.posterpath) // Filtra filmes com posterpath disponível
+                .filter((movie) => movie.posterpath) 
                 .map((movie) => {
                   const posterUrl = `https://image.tmdb.org/t/p/w500${movie.posterpath}`;
                   return (

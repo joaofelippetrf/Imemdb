@@ -28,11 +28,11 @@ const MovieDetails = () => {
   }
 
   if (!movie) {
-    return <p>Carregando...</p>;
+    return <p></p>;
   }
 
   if (!movie.posterpath) {
-    return <p>Este filme não está disponível no momento.</p>;
+    return <p></p>;
   }
 
   const formatDate = (dateString) => {

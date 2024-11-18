@@ -105,7 +105,7 @@ const MoviesList = () => {
         <div className="movies-carousel" ref={recentCarouselRef}>
           {recentReleases.length > 0 ? (
             recentReleases
-              .filter((movie) => movie.posterpath) // Filtra apenas filmes com pôster
+              .filter((movie) => movie.posterpath) // Controle erro filme sem poster
               .map((movie) => {
                 const posterUrl = `https://image.tmdb.org/t/p/w500${movie.posterpath}`;
 

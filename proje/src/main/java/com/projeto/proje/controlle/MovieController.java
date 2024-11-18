@@ -29,27 +29,23 @@ public class MovieController {
             Movie savedMovie = movieService.createMovie(movie);
             return new ResponseEntity<>(savedMovie, HttpStatus.CREATED);
         } catch (Exception e) {
-            
             e.printStackTrace();
             return new ResponseEntity<>("Error creating movie: " + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
     @GetMapping(path = "/{id}")
     public ResponseEntity<Movie> searchMovieById(@PathVariable("id") Integer id) {
         Optional<Movie> movie = movieService.findById(id);
         return movie.map(ResponseEntity::ok)
                     .orElseGet(() -> ResponseEntity.status(HttpStatus.NOT_FOUND).build());
     }
-    
-    public String getMethodName(@RequestParam String param) {
-        return new String();
-    }
-    
+
     @GetMapping(path="/all")
     public Iterable<Movie> getAllMovies(){
         return movieRepository.findAll();
     }
-    
+
     @GetMapping(path="/search/title/{originalTitle}")
     public Iterable<Movie> searchMovieByOriginalTitle(@PathVariable("originalTitle") String originalTitle) {
         return movieRepository.findByOriginalTitle(originalTitle);
@@ -65,6 +61,7 @@ public class MovieController {
         List<Movie> movies = movieService.getTop100Movies();
         return ResponseEntity.ok(movies);
     }
+
     @GetMapping("/busca")
     public ResponseEntity<List<Movie>> searchMovies(@RequestParam("query") String query) {
         if (query == null || query.trim().isEmpty()) {
@@ -73,9 +70,10 @@ public class MovieController {
         List<Movie> movies = movieService.searchMovies(query);
         return ResponseEntity.ok(movies);
     }
+
     @GetMapping("/recent")
     public List<Movie> getRecentMovies() {
         return movieService.getRecentMovies();
     }
-}
 
+}

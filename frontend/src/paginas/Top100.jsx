@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import Header from './header.jsx'; // Importar o componente de cabeçalho
-import '../App.css'; // Importar estilos
+import Header from './header.jsx';
+import '../App.css'; 
 import Footer from './footer.jsx';
 
 const TopMovies = () => {
@@ -11,8 +11,8 @@ const TopMovies = () => {
   useEffect(() => {
     const fetchTopMovies = async () => {
       try {
-        const response = await axios.get('http://localhost:8081/Movies/top100'); // Endpoint para os 100 filmes mais populares
-        setMovies(response.data.slice(0, 100)); // Filtra para pegar apenas os 100 primeiros filmes
+        const response = await axios.get('http://localhost:8081/Movies/top100'); 
+        setMovies(response.data.slice(0, 100)); 
       } catch (error) {
         console.error('Erro ao buscar os 100 filmes:', error);
         setError('Erro ao carregar os filmes.');
@@ -24,17 +24,17 @@ const TopMovies = () => {
 
   return (
     <div className="container-fullscreen">
-      <Header /> {/* Usar o cabeçalho aqui */}
+      <Header /> 
       <h2 className='subtitulo'>Top 100 Movies</h2>
-      {error && <p className="error-message">{error}</p>} {/* Exibe mensagem de erro, se houver */}
+      {error && <p className="error-message">{error}</p>} 
       <div className="movie-search">
         {movies.length > 0 ? (
-          // Filtra filmes com posterpath disponível
+          
           movies
             .filter(movie => movie.posterpath)
             .map(movie => (
               <div className="movie-card" id='top100' key={movie.id}>
-                <a href={`/movies/${movie.id}`}> {/* Link para os detalhes do filme */}
+                <a href={`/movies/${movie.id}`}> 
                   <img
                     src={`https://image.tmdb.org/t/p/w500${movie.posterpath}`}
                     alt={movie.originalTitle}
